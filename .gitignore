@@ -1,5 +1,5 @@
 # Ignore data, env, and cache
-data/
+# data/
 models/
 healthcare-env/
 __pycache__/
