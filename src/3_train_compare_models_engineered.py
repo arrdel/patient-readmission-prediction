@@ -14,7 +14,7 @@ from pathlib import Path
 from sklearn.metrics import roc_curve
 
 # Load engineered dataset
-df = joblib.load('Patient-Readmission-Prediction/models/df_engineered.pkl')
+df = joblib.load('patient-readmission-prediction/models/df_engineered.pkl')
 
 # Split features/target
 X = df.drop('readmitted', axis=1)
@@ -37,7 +37,7 @@ X_test_scaled = scaler.transform(X_test)
 print(f"✅ Dataset ready. Train shape: {X_train_res.shape}")
 
 # Output dir for plots
-OUT_DIR = Path('Patient-Readmission-Prediction') / 'output/train'
+OUT_DIR = Path('patient-readmission-prediction') / 'output/train'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -221,10 +221,10 @@ except Exception as e:
     print('Warning: could not create XGBoost eval plots:', e)
 
 # Save all models + scaler
-joblib.dump(logreg, 'Patient-Readmission-Prediction/models/logreg_engineered.pkl')
-joblib.dump(mlp, 'Patient-Readmission-Prediction/models/mlp_engineered.pkl')
-joblib.dump(xgb, 'Patient-Readmission-Prediction/models/xgb_engineered.pkl')
-joblib.dump(scaler, 'Patient-Readmission-Prediction/models/scaler_engineered.pkl')
+joblib.dump(logreg, 'patient-readmission-prediction/models/logreg_engineered.pkl')
+joblib.dump(mlp, 'patient-readmission-prediction/models/mlp_engineered.pkl')
+joblib.dump(xgb, 'patient-readmission-prediction/models/xgb_engineered.pkl')
+joblib.dump(scaler, 'patient-readmission-prediction/models/scaler_engineered.pkl')
 
 # --- Combined ROC plot for comparison ---
 try:

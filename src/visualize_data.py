@@ -1,13 +1,13 @@
 """
 Simple data visualization script for the diabetes readmission dataset.
 Creates several plots (histograms, bar plots, boxplots, scatter) and saves
-them to Patient-Readmission-Prediction/output/.
+them to patient-readmission-prediction/output/.
 
 Usage:
     python src/visualize_data.py
 
-The script assumes the data files are in Patient-Readmission-Prediction/data/
-and writes PNG files to Patient-Readmission-Prediction/output/.
+The script assumes the data files are in patient-readmission-prediction/data/
+and writes PNG files to patient-readmission-prediction/output/.
 """
 import os
 from pathlib import Path

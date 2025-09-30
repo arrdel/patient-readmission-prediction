@@ -4,10 +4,10 @@
 # from imblearn.over_sampling import SMOTE
 
 # # Load preprocessed data
-# X_train = joblib.load('Patient-Readmission-Prediction/data/X_train.pkl')
-# X_test = joblib.load('Patient-Readmission-Prediction/data/X_test.pkl')
-# y_train = joblib.load('Patient-Readmission-Prediction/data/y_train.pkl')
-# y_test = joblib.load('Patient-Readmission-Prediction/data/y_test.pkl')
+# X_train = joblib.load('patient-readmission-prediction/data/X_train.pkl')
+# X_test = joblib.load('patient-readmission-prediction/data/X_test.pkl')
+# y_train = joblib.load('patient-readmission-prediction/data/y_train.pkl')
+# y_test = joblib.load('patient-readmission-prediction/data/y_test.pkl')
 
 # # Apply SMOTE
 # # Apply SMOTE
@@ -53,7 +53,7 @@
 # print("ROC AUC Score:", roc_auc_score(y_test, proba))
 
 # # Save the model
-# joblib.dump(xgb_model, 'Patient-Readmission-Prediction/data/readmission_model_xgboost.pkl')
+# joblib.dump(xgb_model, 'patient-readmission-prediction/data/readmission_model_xgboost.pkl')
 # print("\n✅ XGBoost model saved as 'readmission_model_xgboost.pkl'")
 
 
@@ -67,10 +67,10 @@
 # from imblearn.over_sampling import SMOTE
 
 # # Load preprocessed data
-# X_train = joblib.load('Patient-Readmission-Prediction/data/X_train.pkl')
-# X_test = joblib.load('Patient-Readmission-Prediction/data/X_test.pkl')
-# y_train = joblib.load('Patient-Readmission-Prediction/data/y_train.pkl')
-# y_test = joblib.load('Patient-Readmission-Prediction/data/y_test.pkl')
+# X_train = joblib.load('patient-readmission-prediction/data/X_train.pkl')
+# X_test = joblib.load('patient-readmission-prediction/data/X_test.pkl')
+# y_train = joblib.load('patient-readmission-prediction/data/y_train.pkl')
+# y_test = joblib.load('patient-readmission-prediction/data/y_test.pkl')
 
 # # Apply SMOTE
 # smote = SMOTE(random_state=42)
@@ -121,7 +121,7 @@
 # print("ROC AUC Score:", roc_auc_score(y_test, proba))
 
 # # Save model
-# joblib.dump(xgb_model, 'Patient-Readmission-Prediction/data/readmission_model_xgboost.pkl')
+# joblib.dump(xgb_model, 'patient-readmission-prediction/data/readmission_model_xgboost.pkl')
 # print("\n✅ XGBoost model saved as 'readmission_model_xgboost.pkl'")
 
 
@@ -146,10 +146,10 @@ def safe_load(path):
 # ------------------------
 # Load preprocessed data
 # ------------------------
-X_train = safe_load('Patient-Readmission-Prediction/models/X_train.pkl')
-X_test = safe_load('Patient-Readmission-Prediction/models/X_test.pkl')
-y_train = safe_load('Patient-Readmission-Prediction/models/y_train.pkl')
-y_test = safe_load('Patient-Readmission-Prediction/models/y_test.pkl')
+X_train = safe_load('patient-readmission-prediction/models/X_train.pkl')
+X_test = safe_load('patient-readmission-prediction/models/X_test.pkl')
+y_train = safe_load('patient-readmission-prediction/models/y_train.pkl')
+y_test = safe_load('patient-readmission-prediction/models/y_test.pkl')
 
 # Ensure correct pandas types
 if not isinstance(X_train, pd.DataFrame):
@@ -219,5 +219,5 @@ print("ROC AUC Score:", roc_auc_score(y_test, proba))
 # ------------------------
 # Save the model
 # ------------------------
-joblib.dump(xgb_model, 'Patient-Readmission-Prediction/models/readmission_model_xgboost.pkl')
+joblib.dump(xgb_model, 'patient-readmission-prediction/models/readmission_model_xgboost.pkl')
 print("\n✅ XGBoost model saved as 'readmission_model_xgboost.pkl'")

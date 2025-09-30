@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Load datasets
-data_path = "Patient-Readmission-Prediction/data/diabetic_data.csv"
-ids_map_path = "Patient-Readmission-Prediction/data/IDS_mapping.csv"
+data_path = "patient-readmission-prediction/data/diabetic_data.csv"
+ids_map_path = "patient-readmission-prediction/data/IDS_mapping.csv"
 
 df = pd.read_csv(data_path)
 ids_map = pd.read_csv(ids_map_path)

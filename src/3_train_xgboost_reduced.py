@@ -4,10 +4,10 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_auc_sco
 from imblearn.over_sampling import SMOTE
 
 # Load reduced data
-X_train = joblib.load('Patient-Readmission-Prediction/models/X_train_reduced.pkl')
-X_test = joblib.load('Patient-Readmission-Prediction/models/X_test_reduced.pkl')
-y_train = joblib.load('Patient-Readmission-Prediction/models/y_train.pkl')
-y_test = joblib.load('Patient-Readmission-Prediction/models/y_test.pkl')
+X_train = joblib.load('patient-readmission-prediction/models/X_train_reduced.pkl')
+X_test = joblib.load('patient-readmission-prediction/models/X_test_reduced.pkl')
+y_train = joblib.load('patient-readmission-prediction/models/y_train.pkl')
+y_test = joblib.load('patient-readmission-prediction/models/y_test.pkl')
 
 # Apply SMOTE
 smote = SMOTE(random_state=42)
@@ -47,5 +47,5 @@ print(confusion_matrix(y_test, preds))
 print("ROC AUC Score:", roc_auc_score(y_test, proba))
 
 # Save model
-joblib.dump(xgb_model, 'Patient-Readmission-Prediction/models/readmission_model_xgboost_reduced.pkl')
+joblib.dump(xgb_model, 'patient-readmission-prediction/models/readmission_model_xgboost_reduced.pkl')
 print("\n✅ Model saved as 'readmission_model_xgboost_reduced.pkl'")

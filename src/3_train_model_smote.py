@@ -4,10 +4,10 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_auc_sco
 from imblearn.over_sampling import SMOTE
 
 # Load preprocessed data
-X_train = joblib.load('Patient-Readmission-Prediction/models/X_train.pkl')
-X_test = joblib.load('Patient-Readmission-Prediction/models/X_test.pkl')
-y_train = joblib.load('Patient-Readmission-Prediction/models/y_train.pkl')
-y_test = joblib.load('Patient-Readmission-Prediction/models/y_test.pkl')
+X_train = joblib.load('patient-readmission-prediction/models/X_train.pkl')
+X_test = joblib.load('patient-readmission-prediction/models/X_test.pkl')
+y_train = joblib.load('patient-readmission-prediction/models/y_train.pkl')
+y_test = joblib.load('patient-readmission-prediction/models/y_test.pkl')
 
 # Apply SMOTE on training data
 sm = SMOTE(random_state=42)
@@ -37,5 +37,5 @@ gb = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, random_stat
 trained_gb = train_and_evaluate(gb, "Gradient Boosting + SMOTE")
 
 # Save the better one
-joblib.dump(trained_gb, 'Patient-Readmission-Prediction/models/readmission_model_smote.pkl')
+joblib.dump(trained_gb, 'patient-readmission-prediction/models/readmission_model_smote.pkl')
 print("\n✅ SMOTE-based model saved as 'readmission_model_smote.pkl'")

@@ -7,10 +7,10 @@
 # from sklearn.preprocessing import StandardScaler
 
 # # Load reduced data
-# X_train = joblib.load('Patient-Readmission-Prediction/data/X_train_reduced.pkl')
-# X_test = joblib.load('Patient-Readmission-Prediction/data/X_test_reduced.pkl')
-# y_train = joblib.load('Patient-Readmission-Prediction/data/y_train.pkl')
-# y_test = joblib.load('Patient-Readmission-Prediction/data/y_test.pkl')
+# X_train = joblib.load('patient-readmission-prediction/data/X_train_reduced.pkl')
+# X_test = joblib.load('patient-readmission-prediction/data/X_test_reduced.pkl')
+# y_train = joblib.load('patient-readmission-prediction/data/y_train.pkl')
+# y_test = joblib.load('patient-readmission-prediction/data/y_test.pkl')
 
 # # SMOTE
 # smote = SMOTE(random_state=42)
@@ -53,9 +53,9 @@
 # print("ROC AUC Score:", roc_auc_score(y_test, mlp_proba))
 
 # # Save best model
-# joblib.dump(logreg, 'Patient-Readmission-Prediction/data/readmission_model_logreg.pkl')
-# joblib.dump(mlp, 'Patient-Readmission-Prediction/data/readmission_model_mlp.pkl')
-# joblib.dump(scaler, 'Patient-Readmission-Prediction/data/scaler.pkl')
+# joblib.dump(logreg, 'patient-readmission-prediction/data/readmission_model_logreg.pkl')
+# joblib.dump(mlp, 'patient-readmission-prediction/data/readmission_model_mlp.pkl')
+# joblib.dump(scaler, 'patient-readmission-prediction/data/scaler.pkl')
 
 # print("\n✅ Models and scaler saved.")
 
@@ -74,10 +74,10 @@ from tqdm import tqdm
 # Load reduced data
 # ======================
 print("📥 Loading data...")
-X_train = joblib.load('Patient-Readmission-Prediction/models/X_train_reduced.pkl')
-X_test = joblib.load('Patient-Readmission-Prediction/models/X_test_reduced.pkl')
-y_train = joblib.load('Patient-Readmission-Prediction/models/y_train.pkl')
-y_test = joblib.load('Patient-Readmission-Prediction/models/y_test.pkl')
+X_train = joblib.load('patient-readmission-prediction/models/X_train_reduced.pkl')
+X_test = joblib.load('patient-readmission-prediction/models/X_test_reduced.pkl')
+y_train = joblib.load('patient-readmission-prediction/models/y_train.pkl')
+y_test = joblib.load('patient-readmission-prediction/models/y_test.pkl')
 
 # ======================
 # SMOTE
@@ -140,8 +140,8 @@ print("ROC AUC Score:", roc_auc_score(y_test, mlp_proba))
 # Save models
 # ======================
 print("\n💾 Saving models...")
-joblib.dump(logreg, 'Patient-Readmission-Prediction/models/readmission_model_logreg.pkl')
-joblib.dump(mlp, 'Patient-Readmission-Prediction/models/readmission_model_mlp.pkl')
-joblib.dump(scaler, 'Patient-Readmission-Prediction/models/scaler.pkl')
+joblib.dump(logreg, 'patient-readmission-prediction/models/readmission_model_logreg.pkl')
+joblib.dump(mlp, 'patient-readmission-prediction/models/readmission_model_mlp.pkl')
+joblib.dump(scaler, 'patient-readmission-prediction/models/scaler.pkl')
 
 print("\n✅ Models and scaler saved.")

@@ -6,17 +6,17 @@ import seaborn as sns
 from pathlib import Path
 
 # Load full training data and model
-X_train = joblib.load('Patient-Readmission-Prediction/models/X_train.pkl')
-X_test = joblib.load('Patient-Readmission-Prediction/models/X_test.pkl')
-y_train = joblib.load('Patient-Readmission-Prediction/models/y_train.pkl')
-y_test = joblib.load('Patient-Readmission-Prediction/models/y_test.pkl')
+X_train = joblib.load('patient-readmission-prediction/models/X_train.pkl')
+X_test = joblib.load('patient-readmission-prediction/models/X_test.pkl')
+y_train = joblib.load('patient-readmission-prediction/models/y_train.pkl')
+y_test = joblib.load('patient-readmission-prediction/models/y_test.pkl')
 
 # Clean feature names (match how XGBoost sees them)
 X_train.columns = X_train.columns.str.replace('[<>\[\]]', '', regex=True)
 X_test.columns = X_test.columns.str.replace('[<>\[\]]', '', regex=True)
 
 # Load trained model
-model = joblib.load('Patient-Readmission-Prediction/models/readmission_model_xgboost.pkl')
+model = joblib.load('patient-readmission-prediction/models/readmission_model_xgboost.pkl')
 
 
 # Get feature importance from model
@@ -39,18 +39,18 @@ X_train_reduced = X_train[top_features]
 X_test_reduced = X_test[top_features]
 
 # Save reduced datasets
-joblib.dump(X_train_reduced, 'Patient-Readmission-Prediction/models/X_train_reduced.pkl')
-joblib.dump(X_test_reduced, 'Patient-Readmission-Prediction/models/X_test_reduced.pkl')
-joblib.dump(y_train, 'Patient-Readmission-Prediction/models/y_train.pkl')
-joblib.dump(y_test, 'Patient-Readmission-Prediction/models/y_test.pkl')
+joblib.dump(X_train_reduced, 'patient-readmission-prediction/models/X_train_reduced.pkl')
+joblib.dump(X_test_reduced, 'patient-readmission-prediction/models/X_test_reduced.pkl')
+joblib.dump(y_train, 'patient-readmission-prediction/models/y_train.pkl')
+joblib.dump(y_test, 'patient-readmission-prediction/models/y_test.pkl')
 
 # Save feature importance for review
-importance_df.to_csv('Patient-Readmission-Prediction/models/feature_importance.csv', index=False)
+importance_df.to_csv('patient-readmission-prediction/models/feature_importance.csv', index=False)
 
 print(f"\n✅ Saved reduced datasets and importance list.")
 
 # --- Visualization: selected vs non-selected features ---
-OUT_DIR = Path('Patient-Readmission-Prediction') / 'output'
+OUT_DIR = Path('patient-readmission-prediction') / 'output'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def plot_top_features_bar(imp_df, top_n=TOP_N):

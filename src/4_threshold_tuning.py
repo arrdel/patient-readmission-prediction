@@ -7,9 +7,9 @@ from sklearn.metrics import (
 )
 
 # Load model, test data, and scaler (optional)
-xgb = joblib.load('Patient-Readmission-Prediction/models/xgb_engineered.pkl')
-X_test = joblib.load('Patient-Readmission-Prediction/models/df_engineered.pkl').drop('readmitted', axis=1)
-y_test = joblib.load('Patient-Readmission-Prediction/models/df_engineered.pkl')['readmitted']
+xgb = joblib.load('patient-readmission-prediction/models/xgb_engineered.pkl')
+X_test = joblib.load('patient-readmission-prediction/models/df_engineered.pkl').drop('readmitted', axis=1)
+y_test = joblib.load('patient-readmission-prediction/models/df_engineered.pkl')['readmitted']
 
 # Use final train/test split (can reload from earlier too)
 from sklearn.model_selection import train_test_split
@@ -43,7 +43,7 @@ plt.title("Precision-Recall vs Threshold")
 plt.legend()
 
 plt.tight_layout()
-plt.savefig("Patient-Readmission-Prediction/output/threshold_tuning_curves.png")
+plt.savefig("patient-readmission-prediction/output/threshold_tuning_curves.png")
 plt.show()
 
 # Try threshold = 0.3 (as an example)

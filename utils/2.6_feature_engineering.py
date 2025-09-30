@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 # Load raw data
-df = pd.read_csv("Patient-Readmission-Prediction/data/diabetic_data.csv")
+df = pd.read_csv("patient-readmission-prediction/data/diabetic_data.csv")
 
 # Drop high-missing or ID columns
 df.drop(columns=[
@@ -86,6 +86,6 @@ cat_cols = df.select_dtypes(include='object').columns
 df_encoded = pd.get_dummies(df, columns=cat_cols, drop_first=True)
 
 # Save full feature-engineered dataset
-joblib.dump(df_encoded, 'Patient-Readmission-Prediction/models/df_engineered.pkl')
+joblib.dump(df_encoded, 'patient-readmission-prediction/models/df_engineered.pkl')
 
 print(f"✅ Feature engineering complete. Final shape: {df_encoded.shape}")

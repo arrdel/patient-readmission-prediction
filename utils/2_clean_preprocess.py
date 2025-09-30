@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 # Load the dataset
-data_path = "Patient-Readmission-Prediction/data/diabetic_data.csv"
+data_path = "patient-readmission-prediction/data/diabetic_data.csv"
 df = pd.read_csv(data_path)
 
 # Drop identifier and high-missing-value columns
@@ -37,10 +37,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Save preprocessed data
-joblib.dump(X_train, 'Patient-Readmission-Prediction/models/X_train.pkl')
-joblib.dump(X_test, 'Patient-Readmission-Prediction/models/X_test.pkl')
-joblib.dump(y_train, 'Patient-Readmission-Prediction/models/y_train.pkl')
-joblib.dump(y_test, 'Patient-Readmission-Prediction/models/y_test.pkl')
+joblib.dump(X_train, 'patient-readmission-prediction/models/X_train.pkl')
+joblib.dump(X_test, 'patient-readmission-prediction/models/X_test.pkl')
+joblib.dump(y_train, 'patient-readmission-prediction/models/y_train.pkl')
+joblib.dump(y_test, 'patient-readmission-prediction/models/y_test.pkl')
 
 print("✅ Preprocessing complete.")
 print(f"Features: {X_train.shape[1]}")
