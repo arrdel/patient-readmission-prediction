@@ -1,6 +1,6 @@
 # 🏥 Patient Readmission Prediction
 
-This project builds and evaluates machine learning models to predict **30-day hospital readmissions** using a real-world diabetes dataset. The pipeline covers data preprocessing, feature engineering, model training (with SMOTE to address class imbalance), threshold tuning, GCP BigQuery integration, and deployment via a Streamlit app.
+This project builds and evaluates machine learning models to predict **30-day hospital readmissions** using a real-world diabetes dataset. The pipeline covers data preprocessing, feature engineering, model training (with SMOTE to address class imbalance)and threshold tuning.
 
 ---
 
@@ -97,23 +97,6 @@ python src/3_train_logistic_mlp_smote.py
 ```bash
 python src/4_threshold_tuning.py
 ```
-<!-- 
-### 6. Launch Streamlit App
-
-```bash
-streamlit run src/app.py
-```
-
----
-
-## 📊 App Features
-
-The Streamlit app supports:
-- Manual entry of patient features for individual predictions
-- Batch predictions using CSV uploads
-- Display of readmission probability and predicted class
-
---- -->
 
 
 ## 📄 License

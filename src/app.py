@@ -2,11 +2,14 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+from pathlib import Path
+
+MODEL_DIR = Path('patient-readmission-prediction') / 'models'
 
 # Load model + scaler + feature names
-model = joblib.load("xgb_bq.pkl")
-scaler = joblib.load("scaler_bq.pkl")
-features = joblib.load("model_features.pkl")
+model = joblib.load("patient-readmission-prediction/models/xgb_engineered.pkl")
+scaler = joblib.load("patient-readmission-prediction/models/scaler.pkl")
+features = joblib.load("patient-readmission-prediction/models/df_engineered.pkl")
 
 st.set_page_config(page_title="Patient Readmission Predictor", layout="wide")
 st.title("🏥 Predict Patient Readmission Risk")
