@@ -1,0 +1,30 @@
+CORRELATION ANALYSIS INSIGHTS
+================================================================================
+
+Dataset: 101766 rows, 52 columns
+Features analyzed: 10
+
+TOP POSITIVE CORRELATIONS:
+--------------------------------------------------------------------------------
+time_in_hospital ↔ num_medications: +0.466
+num_procedures ↔ num_medications: +0.386
+time_in_hospital ↔ num_lab_procedures: +0.318
+num_lab_procedures ↔ num_medications: +0.268
+number_emergency ↔ number_inpatient: +0.267
+num_medications ↔ number_diagnoses: +0.262
+number_diagnoses ↔ age_numeric: +0.243
+time_in_hospital ↔ number_diagnoses: +0.220
+time_in_hospital ↔ num_procedures: +0.191
+number_inpatient ↔ readmitted_binary: +0.165
+
+CORRELATIONS WITH TARGET (readmitted_binary):
+--------------------------------------------------------------------------------
+number_inpatient: +0.165
+number_emergency: +0.061
+number_diagnoses: +0.050
+time_in_hospital: +0.044
+num_medications: +0.038
+num_lab_procedures: +0.020
+number_outpatient: +0.019
+age_numeric: +0.018
+num_procedures: -0.012

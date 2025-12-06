@@ -44,7 +44,7 @@ Georgia State University \\
 \maketitle
 
 \begin{abstract}
-We present a complete, reproducible pipeline and empirical study for predicting hospital readmission within 30 days using the \emph{Diabetes 130-US Hospitals} dataset \cite{diabetes_130-us_hospitals_for_years_1999-2008_296}. Our work focuses on practical preprocessing, robust imbalance handling, and a direct comparison of interpretable models (logistic regression), parametric neural models (multilayer perceptrons, MLP), and tree-ensemble approaches (XGBoost) \cite{friedman2001gbm,breiman2001rf,chen2016xgboost}. The pipeline includes end-to-end engineering steps such as feature cleaning, encoding, scaling, oversampling via SMOTE \cite{chawla2002smote}, and feature selection using gradient-boosted gain scores. We evaluate models extensively through ROC and PR curves, loss curves, feature importance analyses, confusion matrices, and threshold tuning. We report empirical performance, highlight trade-offs between interpretability and predictive power, and discuss next steps involving temporal modeling \cite{choi2016doctor,vaswani2017attention}, calibration \cite{zadrozny2001calibration,platt1999probabilistic}, and causal evaluation \cite{pearl2009causality,shalit2017estimating}. The full source code and reproducibility artifacts are available at: \url{https://github.com/arrdel/patient-readmission-prediction}.
+We present a complete, reproducible pipeline and empirical study for predicting hospital readmission within 30 days using the \emph{Diabetes 130-US Hospitals} dataset \cite{diabetes_130-us_hospitals_for_years_1999-2008_296}. Our work focuses on practical preprocessing, robust imbalance handling, and a direct comparison of interpretable models (logistic regression), parametric neural models (multilayer perceptrons, MLP), and tree-ensemble approaches (XGBoost) \cite{friedman2001gbm,breiman2001rf,chen2016xgboost}. The pipeline includes end-to-end engineering steps such as feature cleaning, encoding, scaling, oversampling via SMOTE \cite{chawla2002smote}, and feature selection using gradient-boosted gain scores. We evaluate models extensively through ROC and PR curves, loss curves, feature importance analyses, confusion matrices, and threshold tuning. We report empirical performance, highlight trade-offs between interpretability and predictive power, and discuss next steps involving temporal modeling \cite{choi2016doctor,vaswani2017attention}, calibration \cite{zadrozny2001calibration,platt1999probabilistic}, and causal evaluation \cite{pearl2009causality,shalit2017estimating}. The full source code and reproducibility artifacts are available at: \url{https://arrdel.github.io/patient-readmission-prediction/}.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,31 +233,9 @@ This study has several limitations. First, each admission was modeled independen
 We presented a reproducible pipeline for 30-day hospital readmission prediction. Our results highlight the strengths of ensemble methods such as XGBoost for discrimination, while also emphasizing the interpretability benefits of logistic regression. The study demonstrates how careful preprocessing, imbalance handling, and rigorous evaluation are essential to trustworthy machine learning for healthcare. Future work should integrate temporal information, calibrate predictive probabilities, and validate models externally for reliable deployment in clinical practice.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{table}[h]
-% \centering
-% \caption{Computational environment and reproducibility details. All experiments were executed in a controlled Python environment with fixed random seeds to ensure comparability of results.}
-% \label{tab:env}
-% \begin{tabularx}{\textwidth}{lX}
-% \toprule
-% \textbf{Item} & \textbf{Value} \\
-% \midrule
-% Python version & 3.9.19 \\
-% Operating system & Ubuntu 22.04 LTS (Linux kernel 5.15) \\
-% Hardware & Intel Xeon Silver 4214 CPU @ 2.20GHz, 64 GB RAM; NVIDIA RTX A5000 GPU (24 GB VRAM) (for MLP training only) \\
-% Key libraries & \texttt{scikit-learn 1.5.1}, \texttt{xgboost 2.1.0}, \texttt{imbalanced-learn 0.12.3}, \texttt{pandas 2.2.2}, \texttt{numpy 1.24.4}, \texttt{matplotlib 3.8.4}, \texttt{seaborn 0.13.2} \\
-% Environment management & \texttt{conda 24.5.0}, isolated environment \texttt{semester\_projects\_env} \\
-% Parallelization & XGBoost executed with \texttt{nthread=16}; scikit-learn models used default joblib parallelism \\
-% Reproducibility notes & Random seed fixed at 42 across train/test splits, SMOTE sampling, and model initialization to minimize stochastic variation \\
-% Runtime (typical) & Logistic Regression: $\sim$20s; MLP (150 epochs): $\sim$8 min (GPU); XGBoost (100 rounds): $\sim$2 min (CPU) \\
-% \bottomrule
-% \end{tabularx}
-% \end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \clearpage
 \bibliographystyle{IEEEbib}
 \bibliography{refs}
 
-
+% TODO: Show result of validation in report
 \end{document}
