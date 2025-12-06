@@ -520,7 +520,10 @@
             <!-- Cross-Validation Results Table -->
             <h3 class="title is-4" style="margin-top: 3rem;">Cross-Validation Performance</h3>
             <p>
-              We employed a rigorous nested cross-validation scheme with 5 outer folds and 3 inner folds for hyperparameter tuning. This approach ensures unbiased performance estimates and proper handling of data leakage, particularly for SMOTE application. The table below presents mean metrics and standard deviations across all five outer-fold evaluations, demonstrating consistent and generalizable model performance.
+              We employed a rigorous nested cross-validation scheme with 5 outer folds and 3 inner folds for
+              hyperparameter tuning. This approach ensures unbiased performance estimates and proper handling of data
+              leakage, particularly for SMOTE application. The table below presents mean metrics and standard deviations
+              across all five outer-fold evaluations, demonstrating consistent and generalizable model performance.
             </p>
 
             <div style="overflow-x: auto; margin: 2rem 0;">
@@ -528,7 +531,9 @@
                 style="margin: 0 auto; max-width: 1000px;">
                 <caption
                   style="caption-side: top; text-align: center; font-weight: bold; margin-bottom: 1rem; font-size: 1.1rem;">
-                  <strong>Table 2:</strong> Cross-validation results (5-fold outer loop, mean ± std dev). Results reflect unbiased estimates of generalization performance with proper separation of training and validation data.
+                  <strong>Table 2:</strong> Cross-validation results (5-fold outer loop, mean ± std dev). Results
+                  reflect unbiased estimates of generalization performance with proper separation of training and
+                  validation data.
                 </caption>
                 <thead style="background-color: #f5f5f5;">
                   <tr>
@@ -574,13 +579,21 @@
             </div>
 
             <p style="margin-top: 1.5rem; font-size: 0.95em;">
-              <strong>Validation Insights:</strong> Cross-validation results demonstrate the consistency of our findings across different data partitions. The modest standard deviations (ranging from 0.008 to 0.042) indicate stable model behavior, suggesting our conclusions are robust and not artifacts of a single test split. XGBoost shows the largest variance across folds (std = 0.031 for ROC AUC, 0.042 for Recall), reflecting its tendency to fit sharper decision boundaries compared to linear and neural models. The correspondence between cross-validation estimates and final test performance (differences &lt; 0.02 for all models) validates our nested cross-validation strategy and confirms good generalization to unseen data.
+              <strong>Validation Insights:</strong> Cross-validation results demonstrate the consistency of our findings
+              across different data partitions. The modest standard deviations (ranging from 0.008 to 0.042) indicate
+              stable model behavior, suggesting our conclusions are robust and not artifacts of a single test split.
+              XGBoost shows the largest variance across folds (std = 0.031 for ROC AUC, 0.042 for Recall), reflecting
+              its tendency to fit sharper decision boundaries compared to linear and neural models. The correspondence
+              between cross-validation estimates and final test performance (differences &lt; 0.02 for all models)
+              validates our nested cross-validation strategy and confirms good generalization to unseen data.
             </p>
 
             <!-- Feature Correlation Analysis -->
             <h3 class="title is-4" style="margin-top: 3rem;">Feature Correlation Analysis</h3>
             <p>
-              Understanding feature relationships is essential for interpreting model behavior and identifying potential multicollinearity. The following visualizations reveal the correlation structure among top-100 selected features used in our models.
+              Understanding feature relationships is essential for interpreting model behavior and identifying potential
+              multicollinearity. The following visualizations reveal the correlation structure among top-100 selected
+              features used in our models.
             </p>
 
             <div class="columns is-centered" style="margin-top: 2rem;">
@@ -589,7 +602,10 @@
                   <img src="static/images/feature_correlation_heatmap.png" alt="Feature Correlation Heatmap"
                     style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 2:</strong> Pearson correlation heatmap of top-100 selected features with the 30-day readmission target. Warmer colors indicate stronger positive correlations; cooler colors indicate negative correlations. The sparse pattern of strong correlations reflects the heterogeneous nature of EHR data and suggests complex, non-linear feature interactions underlie readmission risk.
+                    <strong>Figure 2:</strong> Pearson correlation heatmap of top-100 selected features with the 30-day
+                    readmission target. Warmer colors indicate stronger positive correlations; cooler colors indicate
+                    negative correlations. The sparse pattern of strong correlations reflects the heterogeneous nature
+                    of EHR data and suggests complex, non-linear feature interactions underlie readmission risk.
                   </figcaption>
                 </figure>
               </div>
@@ -601,7 +617,11 @@
                   <img src="static/images/correlation_clustermap.png" alt="Feature Correlation Cluster Map"
                     style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 3:</strong> Hierarchical clustering dendrogram of feature correlations. Features are grouped by similarity, revealing natural clusters: (1) demographics and admission characteristics, (2) prior visit history and utilization patterns, and (3) medication and laboratory features. This structure informs feature engineering and highlights potential redundancy patterns across feature groups.
+                    <strong>Figure 3:</strong> Hierarchical clustering dendrogram of feature correlations. Features are
+                    grouped by similarity, revealing natural clusters: (1) demographics and admission characteristics,
+                    (2) prior visit history and utilization patterns, and (3) medication and laboratory features. This
+                    structure informs feature engineering and highlights potential redundancy patterns across feature
+                    groups.
                   </figcaption>
                 </figure>
               </div>
@@ -610,7 +630,10 @@
             <!-- SMOTE Effect Analysis -->
             <h3 class="title is-4" style="margin-top: 3rem;">SMOTE Effect on Class Imbalance</h3>
             <p>
-              The dataset exhibits severe class imbalance with only ~11% positive readmission cases. SMOTE (Synthetic Minority Over-sampling Technique) generates synthetic samples to balance the training set by creating convex combinations of existing minority-class instances. This visualization demonstrates how SMOTE transforms the feature space to improve model learning.
+              The dataset exhibits severe class imbalance with only ~11% positive readmission cases. SMOTE (Synthetic
+              Minority Over-sampling Technique) generates synthetic samples to balance the training set by creating
+              convex combinations of existing minority-class instances. This visualization demonstrates how SMOTE
+              transforms the feature space to improve model learning.
             </p>
 
             <div class="columns is-centered" style="margin-top: 2rem;">
@@ -619,7 +642,13 @@
                   <img src="static/images/smote_effect.png" alt="SMOTE Effect Visualization"
                     style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 4:</strong> SMOTE effect visualization: (Left) Original imbalanced distribution showing readmission cases (orange) heavily outnumbered by non-readmissions (blue). (Right) After SMOTE oversampling, synthetic minority samples (light orange) fill gaps between real minority instances while preserving neighborhood structure. This augmentation enables classifiers to learn robust decision boundaries in the sparse minority-class region, increasing effective minority sample size from ~11,000 to 78,000. The geometric preservation prevents artificial overfitting while addressing severe class imbalance.
+                    <strong>Figure 4:</strong> SMOTE effect visualization: (Left) Original imbalanced distribution
+                    showing readmission cases (orange) heavily outnumbered by non-readmissions (blue). (Right) After
+                    SMOTE oversampling, synthetic minority samples (light orange) fill gaps between real minority
+                    instances while preserving neighborhood structure. This augmentation enables classifiers to learn
+                    robust decision boundaries in the sparse minority-class region, increasing effective minority sample
+                    size from ~11,000 to 78,000. The geometric preservation prevents artificial overfitting while
+                    addressing severe class imbalance.
                   </figcaption>
                 </figure>
               </div>
