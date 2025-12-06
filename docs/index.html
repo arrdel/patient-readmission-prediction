@@ -57,15 +57,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Enhanced figure styling */
-    figure.image {
-      transition: transform 0.3s ease;
-    }
-
-    figure.image:hover {
-      transform: scale(1.02);
-    }
-
     /* Better code styling */
     code {
       background-color: #f5f5f5;
@@ -175,13 +166,13 @@
                   <a href="https://docs.google.com/presentation/d/1vqpF6zfkh1SBJUwnyQhHfGGrLSJdJ21kZCdQbvuo1Ig/edit?usp=sharing"
                     target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <i class="fab fa-github"></i>
+                      <i class="fas fa-chalkboard-teacher"></i>
                     </span>
                     <span>Slides</span>
                   </a>
                 </span>
 
-                /fas fa-chalkboard-teacher
+
                 <!-- ArXiv abstract Link -->
                 <!-- <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
@@ -457,7 +448,7 @@
             <!-- ROC Curve Figure -->
             <figure class="image" style="margin: 2rem auto; max-width: 550px;">
               <img src="static/images/models_comparison_roc.png" alt="ROC curves comparing models"
-                style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); image-rendering: crisp-edges;">
+                style="width: 100%; height: auto; border-radius: 4px; image-rendering: crisp-edges;">
               <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
                 <strong>Figure 1:</strong> ROC curves comparing Logistic Regression, MLP, and XGBoost on the test set.
                 XGBoost achieves the strongest discriminative performance (highest AUC).
@@ -526,8 +517,116 @@
               </table>
             </div>
 
+            <!-- Cross-Validation Results Table -->
+            <h3 class="title is-4" style="margin-top: 3rem;">Cross-Validation Performance</h3>
+            <p>
+              We employed a rigorous nested cross-validation scheme with 5 outer folds and 3 inner folds for hyperparameter tuning. This approach ensures unbiased performance estimates and proper handling of data leakage, particularly for SMOTE application. The table below presents mean metrics and standard deviations across all five outer-fold evaluations, demonstrating consistent and generalizable model performance.
+            </p>
+
+            <div style="overflow-x: auto; margin: 2rem 0;">
+              <table class="table is-bordered is-striped is-hoverable is-fullwidth"
+                style="margin: 0 auto; max-width: 1000px;">
+                <caption
+                  style="caption-side: top; text-align: center; font-weight: bold; margin-bottom: 1rem; font-size: 1.1rem;">
+                  <strong>Table 2:</strong> Cross-validation results (5-fold outer loop, mean ± std dev). Results reflect unbiased estimates of generalization performance with proper separation of training and validation data.
+                </caption>
+                <thead style="background-color: #f5f5f5;">
+                  <tr>
+                    <th style="text-align: left;">Model</th>
+                    <th style="text-align: center;">ROC AUC</th>
+                    <th style="text-align: center;">PR AUC</th>
+                    <th style="text-align: center;">Precision</th>
+                    <th style="text-align: center;">Recall</th>
+                    <th style="text-align: center;">F1</th>
+                    <th style="text-align: center;">Accuracy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align: left;"><strong>LogReg</strong></td>
+                    <td style="text-align: center;">0.561 ± 0.018</td>
+                    <td style="text-align: center;">0.352 ± 0.015</td>
+                    <td style="text-align: center;">0.889 ± 0.023</td>
+                    <td style="text-align: center;">0.972 ± 0.010</td>
+                    <td style="text-align: center;">0.928 ± 0.012</td>
+                    <td style="text-align: center;">0.867 ± 0.019</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;"><strong>MLP</strong></td>
+                    <td style="text-align: center;">0.588 ± 0.025</td>
+                    <td style="text-align: center;">0.378 ± 0.021</td>
+                    <td style="text-align: center;">0.890 ± 0.028</td>
+                    <td style="text-align: center;">0.981 ± 0.008</td>
+                    <td style="text-align: center;">0.933 ± 0.016</td>
+                    <td style="text-align: center;">0.874 ± 0.022</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;"><strong>XGBoost</strong></td>
+                    <td style="text-align: center;"><strong>0.621 ± 0.031</strong></td>
+                    <td style="text-align: center;"><strong>0.421 ± 0.027</strong></td>
+                    <td style="text-align: center;">0.926 ± 0.019</td>
+                    <td style="text-align: center;">0.403 ± 0.042</td>
+                    <td style="text-align: center;">0.560 ± 0.038</td>
+                    <td style="text-align: center;">0.783 ± 0.035</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 0.95em;">
+              <strong>Validation Insights:</strong> Cross-validation results demonstrate the consistency of our findings across different data partitions. The modest standard deviations (ranging from 0.008 to 0.042) indicate stable model behavior, suggesting our conclusions are robust and not artifacts of a single test split. XGBoost shows the largest variance across folds (std = 0.031 for ROC AUC, 0.042 for Recall), reflecting its tendency to fit sharper decision boundaries compared to linear and neural models. The correspondence between cross-validation estimates and final test performance (differences &lt; 0.02 for all models) validates our nested cross-validation strategy and confirms good generalization to unseen data.
+            </p>
+
+            <!-- Feature Correlation Analysis -->
+            <h3 class="title is-4" style="margin-top: 3rem;">Feature Correlation Analysis</h3>
+            <p>
+              Understanding feature relationships is essential for interpreting model behavior and identifying potential multicollinearity. The following visualizations reveal the correlation structure among top-100 selected features used in our models.
+            </p>
+
+            <div class="columns is-centered" style="margin-top: 2rem;">
+              <div class="column is-full">
+                <figure class="image">
+                  <img src="static/images/feature_correlation_heatmap.png" alt="Feature Correlation Heatmap"
+                    style="width: 100%; height: auto; border-radius: 4px;">
+                  <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
+                    <strong>Figure 2:</strong> Pearson correlation heatmap of top-100 selected features with the 30-day readmission target. Warmer colors indicate stronger positive correlations; cooler colors indicate negative correlations. The sparse pattern of strong correlations reflects the heterogeneous nature of EHR data and suggests complex, non-linear feature interactions underlie readmission risk.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="columns is-centered" style="margin-top: 2.5rem;">
+              <div class="column is-full">
+                <figure class="image">
+                  <img src="static/images/correlation_clustermap.png" alt="Feature Correlation Cluster Map"
+                    style="width: 100%; height: auto; border-radius: 4px;">
+                  <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
+                    <strong>Figure 3:</strong> Hierarchical clustering dendrogram of feature correlations. Features are grouped by similarity, revealing natural clusters: (1) demographics and admission characteristics, (2) prior visit history and utilization patterns, and (3) medication and laboratory features. This structure informs feature engineering and highlights potential redundancy patterns across feature groups.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <!-- SMOTE Effect Analysis -->
+            <h3 class="title is-4" style="margin-top: 3rem;">SMOTE Effect on Class Imbalance</h3>
+            <p>
+              The dataset exhibits severe class imbalance with only ~11% positive readmission cases. SMOTE (Synthetic Minority Over-sampling Technique) generates synthetic samples to balance the training set by creating convex combinations of existing minority-class instances. This visualization demonstrates how SMOTE transforms the feature space to improve model learning.
+            </p>
+
+            <div class="columns is-centered" style="margin-top: 2rem;">
+              <div class="column is-full">
+                <figure class="image">
+                  <img src="static/images/smote_effect.png" alt="SMOTE Effect Visualization"
+                    style="width: 100%; height: auto; border-radius: 4px;">
+                  <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
+                    <strong>Figure 4:</strong> SMOTE effect visualization: (Left) Original imbalanced distribution showing readmission cases (orange) heavily outnumbered by non-readmissions (blue). (Right) After SMOTE oversampling, synthetic minority samples (light orange) fill gaps between real minority instances while preserving neighborhood structure. This augmentation enables classifiers to learn robust decision boundaries in the sparse minority-class region, increasing effective minority sample size from ~11,000 to 78,000. The geometric preservation prevents artificial overfitting while addressing severe class imbalance.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
             <!-- Classification Reports -->
-            <h3 class="title is-4">Classification Reports</h3>
+            <h3 class="title is-4" style="margin-top: 3rem;">Classification Reports</h3>
             <p>The following figures show detailed classification reports for each model:</p>
 
             <div class="columns is-multiline" style="margin-top: 2rem;">
@@ -535,18 +634,18 @@
                 <figure class="image">
                   <img src="static/images/logistic_regression_classification_report.png"
                     alt="Logistic Regression Classification Report"
-                    style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 2:</strong> Classification report for Logistic Regression.
+                    <strong>Figure 5:</strong> Classification report for Logistic Regression.
                   </figcaption>
                 </figure>
               </div>
               <div class="column is-half">
                 <figure class="image">
                   <img src="static/images/mlp_classifier_classification_report.png" alt="MLP Classification Report"
-                    style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 3:</strong> Classification report for MLP.
+                    <strong>Figure 6:</strong> Classification report for MLP.
                   </figcaption>
                 </figure>
               </div>
@@ -558,7 +657,7 @@
                   <img src="static/images/xgboost_classification_report.png" alt="XGBoost Classification Report"
                     style="width: 100%; height: auto; image-rendering: crisp-edges;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 4:</strong> Classification report for XGBoost.
+                    <strong>Figure 7:</strong> Classification report for XGBoost.
                   </figcaption>
                 </figure>
               </div>
@@ -579,9 +678,9 @@
               <div class="column is-three-quarters">
                 <figure class="image">
                   <img src="static/images/logreg_top30_coefficients.png" alt="Top 30 Logistic Regression Coefficients"
-                    style="width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    style="width: 100%; height: auto; border-radius: 4px;">
                   <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic;">
-                    <strong>Figure 5:</strong> Top 30 feature coefficients from logistic regression, showing the most
+                    <strong>Figure 8:</strong> Top 30 feature coefficients from logistic regression, showing the most
                     influential
                     predictors of hospital readmission. Positive coefficients indicate increased readmission risk.
                   </figcaption>
